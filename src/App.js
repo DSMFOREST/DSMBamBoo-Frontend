@@ -8,6 +8,7 @@ import PostModalContainer from './containers/common/PostModalContainer'
 
 import HSBomBaramFont from './assest/fonts/HSBomBaram.ttf'
 import NanumGothicFont from './assest/fonts/NanumGothic.woff'
+import LoginModalContainer from './containers/common/LoginModalContainer.js';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -41,6 +42,7 @@ class App extends Component {
         <PostModalContainer />
         <HeaderContainer />
         <ChoiceSectionContainer />
+        <LoginModalContainer></LoginModalContainer>
       </div>
     );
   }

@@ -26,7 +26,6 @@ const outro = keyframes`
 
 const ModalWrapper = styled.div`
     position: fixed;
-    display: flex;
     justify-content: center;
     align-items: center;
     z-index: 30000;
@@ -34,6 +33,7 @@ const ModalWrapper = styled.div`
     width: 100%;
     height: 100%;
     background-color: rgba(23, 23, 23, 0.53);
+    display: ${props => props.loginToggle ? 'flex' : 'none'};
 `
 
 const Modal = styled.div`
@@ -45,7 +45,7 @@ const Modal = styled.div`
     box-sizing: border-box;
     animation-duration: 0.5s;
     animation-fill-mode: both;
-    animation-name: intro;
+    animation-name: ${props => props.loginToggle ? intro : outro};
 `
 
 const ModalBodyWrapper = styled.div`
@@ -142,15 +142,15 @@ const ModalLoginButton = styled.button`
     }
 `
 
-const LoginModal = ({postState, onHandleClick}) => {
+const LoginModal = ({loginToggle, onHandleClick}) => {
     return (
-        <ModalWrapper onClick = {() => {
-            postState &&
+        <ModalWrapper loginToggle = {loginToggle} onClick = {() => {
+            loginToggle &&
             onHandleClick()
             }}>
-            <Modal postState = {postState} onClick = {e => e.stopPropagation()}>
+            <Modal loginToggle = {loginToggle} onClick = {e => e.stopPropagation()}>
                 <ModalBodyWrapper>
-                    <ModalHeaderEnd></ModalHeaderEnd>
+                    <ModalHeaderEnd onClick = {onHandleClick}></ModalHeaderEnd>
                     <ModalTitle>대나무숲</ModalTitle>
                     <ModalSubTitle>관리자 로그인</ModalSubTitle>
                     <ModalInputWrapper>

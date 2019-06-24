@@ -1,29 +1,33 @@
 import React, { Component } from 'react'
 
+import { connect } from 'react-redux';
+
 import Header from '../../components/common/Header'
+import LoginModalAction from '../../action/LoginModalAction';
 
 class HeaderContainer extends Component {
-    
-    state = {
-        loginToggle: false
-    }
-
     shouldComponentUpdate(nextProps) {
         return false
     }
 
-    LoginSwitch = () => {
-        this.setState({
-            loginToggle: true
-        });
-        console.log(this.state.loginToggle);
+    LoginSwitchon = () => {
+        this.props.toggleSwitch('on')
+        console.log(this.props.toggle)
     }
 
     render() {
         return (
-            <Header LoginSwitch={this.LoginSwitch}/>
+            <Header LoginSwitchon={this.LoginSwitchon}/>
         )
     }
 }
 
-export default HeaderContainer;
+const mapStateToProps = (state) => ({
+    toggle: state.loginToggle.toggle
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    toggleSwitch: (swit) => dispatch(LoginModalAction(swit))
+})
+
+export default connect(mapStateToProps ,mapDispatchToProps)(HeaderContainer);

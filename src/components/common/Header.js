@@ -21,13 +21,14 @@ const HeaderLogin = styled.div`
     font-family: 'NanumGothic';
     font-size: 1.25rem;
     color: #444444;
+    cursor: pointer;
 `
 
-const Header = ({LoginSwitch}) => {
+const Header = ({LoginSwitchon}) => {
     return (
         <HeaderWrapper>
             <HeaderTitle>대마고 대나무숲</HeaderTitle>
-            <HeaderLogin onClick = {LoginSwitch}>관리자 로그인</HeaderLogin>
+            <HeaderLogin onClick = {LoginSwitchon}>관리자 로그인</HeaderLogin>
         </HeaderWrapper>
     );
 };

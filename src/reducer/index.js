@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 
 import choiceSection from './choiceSection'
+import loginToggle from './loginToggle'
 
 const reducers = combineReducers({
-    choiceSection
+    choiceSection, loginToggle
 })
 
 export default reducers;
