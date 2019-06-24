@@ -23,11 +23,11 @@ const HeaderLogin = styled.div`
     color: #444444;
 `
 
-const Header = () => {
+const Header = ({LoginSwitch}) => {
     return (
         <HeaderWrapper>
             <HeaderTitle>대마고 대나무숲</HeaderTitle>
-            <HeaderLogin>관리자 로그인</HeaderLogin>
+            <HeaderLogin onClick = {LoginSwitch}>관리자 로그인</HeaderLogin>
         </HeaderWrapper>
     );
 };
