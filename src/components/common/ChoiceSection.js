@@ -48,7 +48,7 @@ const ChoiceSectionText = styled.div`
 `
 
 const StoryBambooWrapper = styled.div`
-    height: 26.75rem;
+    height: auto;
     box-sizing: border-box;
     padding-top: 5.5625rem;
     display: flex;
@@ -121,6 +121,33 @@ const StoryBambooArrow = styled.div`
     background-size: cover;
 `
 
+const SearchBoxWrapper = styled.div`
+    width: 65rem;
+    height: 4.5rem;
+    border-radius: 0.88rem;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.11);
+    background-color: #ffffff;
+    display: flex;
+    margin-top: 3rem;
+`
+
+const Category = styled.select`
+    font-family: NanumGothic;
+    color: #707070;
+    border: 0;
+    background-color: #ffffff;
+    margin-left: 2rem;
+    margin-right: 6rem;
+    font-size: 1.3rem;
+`
+
+const SearchBox = styled.input`
+    font-family: NanumGothic;
+    color: #707070;
+    font-size: 1.3rem;
+    border: 0;
+`
+
 const ChoiceSection = ({section, choiceButtons}) => {
     return (
         <TopSectionWrapper>
@@ -152,6 +179,12 @@ const ChoiceSection = ({section, choiceButtons}) => {
                     </StoryBambooDescription>
                 </StoryBambooDescriptionWrapper>
                 <StoryBambooArrow />
+                <SearchBoxWrapper>
+                    <Category name="category">
+                        <option value="카테고리">카테고리</option>
+                    </Category>
+                    <SearchBox placeholder="검색어를 입력해 주세요"></SearchBox>
+                </SearchBoxWrapper>
             </StoryBambooWrapper>
         </TopSectionWrapper>
     )
