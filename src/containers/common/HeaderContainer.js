@@ -1,23 +1,37 @@
 import React, { Component } from 'react'
 
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import Header from '../../components/common/Header'
 import LoginModalAction from '../../action/LoginModalAction';
 
 class HeaderContainer extends Component {
+    state = {
+        isLogin: false
+    }
+
     shouldComponentUpdate(nextProps) {
         return false
     }
 
     LoginSwitchon = () => {
         this.props.toggleSwitch('on')
-        console.log(this.props.toggle)
+    }
+
+    IsLogin = async () => {
+        try {
+            const response = await axios.post('http://dsmbamboo.com:8080/api')
+            this.setState({isLogin : true})
+        }
+        catch(err) {
+            console.log(err)
+        }
     }
 
     render() {
         return (
-            <Header LoginSwitchon={this.LoginSwitchon}/>
+            <Header LoginSwitchon={this.LoginSwitchon} toggle={this.props.toggle}/>
         )
     }
 }

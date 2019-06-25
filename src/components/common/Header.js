@@ -24,11 +24,11 @@ const HeaderLogin = styled.div`
     cursor: pointer;
 `
 
-const Header = ({LoginSwitchon}) => {
+const Header = ({LoginSwitchon, toggle}) => {
     return (
         <HeaderWrapper>
             <HeaderTitle>대마고 대나무숲</HeaderTitle>
-            <HeaderLogin onClick = {LoginSwitchon}>관리자 로그인</HeaderLogin>
+            <HeaderLogin onClick = {LoginSwitchon}>{toggle ? '로그아웃' : '관리자 로그인'}</HeaderLogin>
         </HeaderWrapper>
     );
 };
