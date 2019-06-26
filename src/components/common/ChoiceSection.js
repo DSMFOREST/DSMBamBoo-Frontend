@@ -1,10 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import BambooForestImage from '../../assest/background/bambooforest.jpg'
+import BambooForestImage from '../../assest/background/bambooforest.jpg';
 
-import arrowIcon from '../../assest/icon/arrow.png'
+import arrowIcon from '../../assest/icon/arrow.png';
+
+import Table from './Table';
 
 const ChoiceSectionWrapper = styled.div`
     position: relative;
@@ -146,6 +148,63 @@ const SearchBox = styled.input`
     color: #707070;
     font-size: 1.3rem;
     border: 0;
+    width: 40rem;
+`
+
+const TableWrapper = styled.div`
+    display: flex;
+    margin-top: 4rem;
+    flex-direction: column;
+    align-items: center;
+`
+const TableHeader = styled.div`
+    display: flex;
+    border-bottom: 1px solid #8e8e8e;
+    width: 70rem;
+    & p{
+        font-family: SegoeUI;
+        color: #444444;
+        font-size: 1.4rem;
+        font-weight: bold;
+        margin: 0 5rem 1rem 5rem;
+    }
+    justify-content: space-between;
+    box-shadow: 0px 8px 20px -15px #111;
+`
+
+const LeftArrow = styled.i`
+    border: solid #7bbb5a;
+    border-width: 0 1.5px 1.5px 0;
+    display: inline-block;
+    padding: 3px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+    height: 0.3px;
+    margin-right: 2rem;
+    margin-top: 1.8rem;
+`
+
+const RightArrow = styled.i`
+    border: solid #7bbb5a;
+    border-width: 0 1.5px 1.5px 0;
+    display: inline-block;
+    padding: 3px;
+    height: 0.3px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    margin-left: 2rem;
+    margin-top: 1.8rem;
+`
+
+const TableBottom = styled.div`
+    display: flex;
+    margin-top: 3rem;
+    & p{
+        font-family: NanumGothic;
+        color: #444444;
+        font-weight: bold;
+        font-size: 1.3rem;
+    }
 `
 
 const ChoiceSection = ({section, choiceButtons}) => {
@@ -185,6 +244,19 @@ const ChoiceSection = ({section, choiceButtons}) => {
                     </Category>
                     <SearchBox placeholder="검색어를 입력해 주세요"></SearchBox>
                 </SearchBoxWrapper>
+                <TableWrapper>
+                    <TableHeader>
+                        <p>번호</p>
+                        <p>제목</p>
+                        <p>등록일</p>
+                    </TableHeader>
+                    <Table></Table>
+                    <TableBottom>
+                        <LeftArrow />
+                        <p>1</p>
+                        <RightArrow />
+                    </TableBottom>
+                </TableWrapper>
             </StoryBambooWrapper>
         </TopSectionWrapper>
     )
