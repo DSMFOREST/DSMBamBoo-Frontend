@@ -169,7 +169,7 @@ const TableHeader = styled.div`
         margin: 0 5rem 1rem 5rem;
     }
     justify-content: space-between;
-    box-shadow: 0px 8px 20px -15px #111;
+    box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.16);
 `
 
 const LeftArrow = styled.i`

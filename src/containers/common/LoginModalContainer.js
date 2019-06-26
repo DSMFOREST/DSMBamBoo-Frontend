@@ -6,11 +6,6 @@ import LoginModal from '../../components/common/LoginModal';
 import LoginModalAction from '../../action/LoginModalAction';
 
 class LoginModalContainer extends Component {
-    constructor() {
-        super();
-        this.Login = this.Login.bind(this);
-    }
-
     state = {
         adminId: '',
         password: '',
@@ -24,7 +19,7 @@ class LoginModalContainer extends Component {
         })
     }
 
-    async Login () {
+    Login = async () => {
         if (this.state.adminId === '') {
             this.setState({
                 wrong : true
@@ -51,6 +46,10 @@ class LoginModalContainer extends Component {
                 console.log(err)
             }
         }
+        this.setState({
+            adminId: '',
+            password: ''
+        })
     }
 
     handleChange = (e) => {
@@ -60,7 +59,7 @@ class LoginModalContainer extends Component {
 
     render() {
         return (
-            <LoginModal loginToggle={this.props.toggle} onHandleClick={this.LoginSwitchoff} wrong={this.state.wrong} onButtonClick={this.Login} handleChange={this.handleChange}></LoginModal>
+            <LoginModal id={this.state.adminId} password={this.state.password} loginToggle={this.props.toggle} onHandleClick={this.LoginSwitchoff} wrong={this.state.wrong} onButtonClick={this.Login} handleChange={this.handleChange}></LoginModal>
         );
     };
 }

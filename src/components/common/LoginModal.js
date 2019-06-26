@@ -143,7 +143,7 @@ const ModalLoginButton = styled.button`
     }
 `
 
-const LoginModal = ({loginToggle, onHandleClick, wrong, onButtonClick, handleChange}) => {
+const LoginModal = ({id, password, loginToggle, onHandleClick, wrong, onButtonClick, handleChange}) => {
     return (
         <ModalWrapper loginToggle = {loginToggle} onClick = {() => {
             loginToggle &&
@@ -156,11 +156,11 @@ const LoginModal = ({loginToggle, onHandleClick, wrong, onButtonClick, handleCha
                     <ModalSubTitle>관리자 로그인</ModalSubTitle>
                     <ModalInputWrapper>
                         <ModalInputTitle>ID</ModalInputTitle>
-                        <ModalInputBox name="adminId" onChange={handleChange}></ModalInputBox>
+                        <ModalInputBox value={id} name="adminId" onChange={handleChange}></ModalInputBox>
                     </ModalInputWrapper>
                     <ModalInputWrapper>
                         <ModalInputTitle>PW</ModalInputTitle>
-                        <ModalInputBox type="password" name="password" onChange={handleChange}></ModalInputBox>
+                        <ModalInputBox value={password} type="password" name="password" onChange={handleChange}></ModalInputBox>
                     </ModalInputWrapper>
                     <ModalWorngIDPW wrong={wrong}>ID 또는 PW가 틀렸습니다.</ModalWorngIDPW>
                 </ModalBodyWrapper>
