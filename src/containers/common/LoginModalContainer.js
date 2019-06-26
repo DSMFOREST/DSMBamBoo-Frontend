@@ -15,6 +15,8 @@ class LoginModalContainer extends Component {
     LoginSwitchoff = () => {
         this.props.toggleSwitch('off')
         this.setState({
+            adminId: '',
+            password: '',
             wrong : false
         })
     }
@@ -52,6 +54,12 @@ class LoginModalContainer extends Component {
         })
     }
 
+    enterkey = () => {
+        if(window.event.keyCode == 13){
+            this.Login();
+        }
+    }
+
     handleChange = (e) => {
         this.setState({[e.target.name]: e.target.value})
         console.log(e.target.name)
@@ -59,7 +67,7 @@ class LoginModalContainer extends Component {
 
     render() {
         return (
-            <LoginModal id={this.state.adminId} password={this.state.password} loginToggle={this.props.toggle} onHandleClick={this.LoginSwitchoff} wrong={this.state.wrong} onButtonClick={this.Login} handleChange={this.handleChange}></LoginModal>
+            <LoginModal id={this.state.adminId} password={this.state.password} loginToggle={this.props.toggle} onHandleClick={this.LoginSwitchoff} wrong={this.state.wrong} onButtonClick={this.Login} pressenter={this.enterkey} handleChange={this.handleChange}></LoginModal>
         );
     };
 }

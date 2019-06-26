@@ -143,7 +143,7 @@ const ModalLoginButton = styled.button`
     }
 `
 
-const LoginModal = ({id, password, loginToggle, onHandleClick, wrong, onButtonClick, handleChange}) => {
+const LoginModal = ({id, password, loginToggle, onHandleClick, pressenter, wrong, onButtonClick, handleChange}) => {
     return (
         <ModalWrapper loginToggle = {loginToggle} onClick = {() => {
             loginToggle &&
@@ -160,7 +160,7 @@ const LoginModal = ({id, password, loginToggle, onHandleClick, wrong, onButtonCl
                     </ModalInputWrapper>
                     <ModalInputWrapper>
                         <ModalInputTitle>PW</ModalInputTitle>
-                        <ModalInputBox value={password} type="password" name="password" onChange={handleChange}></ModalInputBox>
+                        <ModalInputBox value={password} type="password" name="password" onChange={handleChange} onKeyUp={pressenter}></ModalInputBox>
                     </ModalInputWrapper>
                     <ModalWorngIDPW wrong={wrong}>ID 또는 PW가 틀렸습니다.</ModalWorngIDPW>
                 </ModalBodyWrapper>
