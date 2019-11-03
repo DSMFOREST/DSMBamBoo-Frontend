@@ -55,7 +55,7 @@ class LoginModalContainer extends Component {
     }
 
     enterkey = () => {
-        if(window.event.keyCode == 13){
+        if(window.event.keyCode === 13){
             this.Login();
         }
     }

@@ -5,6 +5,8 @@ import { createGlobalStyle } from 'styled-components'
 import HeaderContainer from './containers/common/HeaderContainer.js'
 import ChoiceSectionContainer from './containers/common/ChoiceSectionContainer.js'
 import PostModalContainer from './containers/common/PostModalContainer'
+import SearchBoxContainter from './containers/common/SearchBoxContainer'
+import TableContainer from './containers/common/TableContainer'
 
 import HSBomBaramFont from './assest/fonts/HSBomBaram.ttf'
 import NanumGothicFont from './assest/fonts/NanumGothic.woff'
@@ -42,6 +44,8 @@ class App extends Component {
         <PostModalContainer />
         <HeaderContainer />
         <ChoiceSectionContainer />
+        <SearchBoxContainter />
+        <TableContainer />
         <LoginModalContainer></LoginModalContainer>
       </div>
     );
